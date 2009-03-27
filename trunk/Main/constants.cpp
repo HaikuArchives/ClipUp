@@ -1,3 +1,13 @@
+/*
+ * Copyrights (c):
+ *     2001 - 2008 , Werner Freytag.
+ *     2009, Haiku
+ * Distributed under the terms of the MIT License.
+ *
+ * Original Author:
+ *              Werner Freytag <freytag@gmx.de>
+ */
+
 #include "constants.h"
 
 const rgb_color	normal_color = { 216, 216, 216, 255 };
