@@ -33,6 +33,8 @@
 #include <iostream.h>
 #endif
 
+#include <stdio.h>
+
 #include "BubbleHelp.h"
 #include "constants.h"
 #include "MultiClipboard.h"
@@ -275,7 +277,7 @@ void DeskbarView::UpdateClip()
 
 void DeskbarView::AddToDeskbar()
 {
-#if B_BEOS_VERSION >= B_BEOS_VERSION_5
+#if B_BEOS_VERSION >= B_BEOS_VERSION_5 || defined(__HAIKU__)
 	BDeskbar *deskbar = new BDeskbar();
 	entry_ref ref;
 	be_roster->FindApp(APP_SIGNATURE, &ref);
@@ -283,9 +285,9 @@ void DeskbarView::AddToDeskbar()
 	delete deskbar;
 #else
 	BDeskbar *deskbar = new BDeskbar();
-	DeskbarView *replicant = new DeskbarView( VIEW_RECT );
+	DeskbarView *replicant = new DeskbarView();
 	
-	err = deskbar->AddItem(replicant);
+	deskbar->AddItem(replicant);
 	delete replicant;
 	delete deskbar;
 #endif

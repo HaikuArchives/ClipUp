@@ -16,7 +16,7 @@
 #include <Region.h>
 #include <Screen.h>
 #include <String.h>
-#include <string.h>
+#include <View.h>
 #include <TextView.h>
 #include <Window.h>
 

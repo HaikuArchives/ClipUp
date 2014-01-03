@@ -12,10 +12,14 @@
 #include <iostream>
 #endif
 
+#include <Application.h>
+
 #include "DeskbarView.h"
+#include "constants.h"
 
 int main()
 {
 	DeskbarView::AddToDeskbar();
+	BApplication app(APP_SIGNATURE);
 	return 0;
 }
