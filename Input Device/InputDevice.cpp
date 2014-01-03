@@ -1,4 +1,4 @@
-#include "input_device.h"
+#include "InputDevice.h"
 
 #include <InterfaceDefs.h>
 #include <stdlib.h>
@@ -91,8 +91,20 @@ int32 ClipUpInputDevice::listener( void *arg) {
 		event->AddInt8("byte", 'v');
 		event->AddInt8("byte", 0);
 		event->AddInt8("byte", 0);
-//		event->AddInt32("raw_char", 'v');
-//		event->AddString("bytes", "v");
+		event->AddInt32("raw_char", 'v');
+		event->AddString("bytes", "v");
+		
+		clipupDevice->EnqueueMessage(event);
+
+		event = new BMessage(B_KEY_UP);
+		event->AddInt64("when", system_time() );
+		event->AddInt32("raw_char", 118);
+		event->AddInt32("modifiers", B_COMMAND_KEY);
+		event->AddInt8("byte", 'v');
+		event->AddInt8("byte", 0);
+		event->AddInt8("byte", 0);
+		event->AddInt32("raw_char", 'v');
+		event->AddString("bytes", "v");
 		
 		clipupDevice->EnqueueMessage(event);
 

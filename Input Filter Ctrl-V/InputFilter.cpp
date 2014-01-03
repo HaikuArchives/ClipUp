@@ -20,7 +20,9 @@ InputFilter::InputFilter()
 }
 
 filter_result InputFilter::Filter(BMessage *message, BList *outList) {
-
+	
+	const int32	kControlKeys = B_COMMAND_KEY | B_SHIFT_KEY;
+	
 	if (message->what == B_KEY_DOWN ) {
 
 		int32 raw;
@@ -28,8 +30,8 @@ filter_result InputFilter::Filter(BMessage *message, BList *outList) {
 		
 		if ((message->FindInt32("raw_char", 0, (int32 *)&raw) == B_OK)
 			&& (message->FindInt32("modifiers", (int32 *)&mods) == B_OK)
-			&& (raw==32) // "space"
-			&& (mods & B_OPTION_KEY)) {
+			&& (raw==118) // v
+			&& ((mods & kControlKeys) == kControlKeys) ) {
 			
 			port_id port = find_port("ClipUp input port");
 
