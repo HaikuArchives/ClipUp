@@ -19,7 +19,7 @@
 
 int main()
 {
-	DeskbarView::AddToDeskbar();
 	BApplication app(APP_SIGNATURE);
+	DeskbarView::AddToDeskbar();
 	return 0;
 }
