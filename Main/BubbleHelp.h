@@ -13,6 +13,13 @@
 
 #include <OS.h>
 
+#include <Point.h>
+
+class BList;
+class BWindow;
+class BTextView;
+class BView;
+
 class BubbleHelp {
 
 friend class BubbleView;
