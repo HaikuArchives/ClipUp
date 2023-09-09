@@ -41,7 +41,7 @@ void ArrowedView::DetachedFromWindow()
 	// save prefs
 	if (Name()==0) return;
 	
-	string name = "arrow_open_";
+	std::string name = "arrow_open_";
 	name += Name();
 	name += char(0);
 		
@@ -65,7 +65,7 @@ void ArrowedView::AttachedToWindow()
 	// load prefs
 	if (Name()==0) return;
 
-	string name = "arrow_open_";
+	std::string name = "arrow_open_";
 	name += Name();
 	name += char(0);
 		

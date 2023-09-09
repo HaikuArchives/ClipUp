@@ -43,12 +43,12 @@ void				Helper();
 void				DisplayHelp(const char *text, BPoint where);
 void				OpenHelpWindow( BView *view, BPoint where );
 char				*GetHelp(BView *view);
-static long 		_helper(void *arg);
+static int	 		_helper(void *arg);
 BView				*FindView(BPoint where);
 		
 void				HideBubble();
 		
-static long			runcount;
+static int32		runcount;
 static long			fShowNow;
 };
 
