@@ -30,7 +30,7 @@
 #include <string>
 
 #if DEBUG
-#include <iostream.h>
+#include <iostream>
 #endif
 
 #include <stdio.h>

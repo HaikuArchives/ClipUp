@@ -17,9 +17,7 @@
 #include <iostream>
 #endif
 #include <math.h>
-#if DEBUG
-#include <stl.h>
-#endif
+
 
 #include "ApplicationView.h"
 #include "ArrowedView.h"
@@ -316,7 +314,7 @@ void PopUpWindow::Hide()
 
 void PopUpWindow::RemoveArrowedViews()
 {
-	for (vector<ArrowedView *>::iterator i = fViews.begin(); i != fViews.end(); ++i) {
+	for (std::vector<ArrowedView *>::iterator i = fViews.begin(); i != fViews.end(); ++i) {
 		fMainView->RemoveChild( *i );
 
 		float width, height;
@@ -329,7 +327,7 @@ void PopUpWindow::AddArrowedViews( bool is_update )
 {
 	float next_top_position = 5;
 
-	for (vector<ArrowedView *>::iterator i = fViews.begin(); i != fViews.end(); ++i) {
+	for (std::vector<ArrowedView *>::iterator i = fViews.begin(); i != fViews.end(); ++i) {
 
 		fMainView->AddChild( *i );
 		(*i)->SetTarget( this );
@@ -354,7 +352,7 @@ void PopUpWindow::AddArrowedViews( bool is_update )
 void PopUpWindow::SizeEffect( float new_width, float new_height )
 {
 	
-	vector<ArrowedView *>::iterator vi;
+	std::vector<ArrowedView *>::iterator vi;
 	
 	for ( vi = fViews.begin(); vi!=fViews.end(); ++vi )
 		(*vi)->SetEnabled(false);
@@ -415,7 +413,7 @@ void PopUpWindow::SizeEffect( float new_width, float new_height )
 // sizechange with view resizing
 void PopUpWindow::ResizeToPreferredSize( bool with_effect )
 {
-	vector<ArrowedView *>::iterator vi;
+	std::vector<ArrowedView *>::iterator vi;
 	
 	if (with_effect) {
 		for ( vi = fViews.begin(); vi!=fViews.end(); ++vi )
@@ -464,8 +462,7 @@ void PopUpWindow::ResizeToPreferredSize( bool with_effect )
 
 	}
 	
-	vi = &fViews.back();
-	ResizeTo( maxwidth + 2, (*vi)->Frame().bottom - 1);
+	ResizeTo( maxwidth + 2, fViews.back()->Frame().bottom - 1);
 	
 	if (with_effect) {
 		for ( vi = fViews.begin(); vi!=fViews.end(); ++vi ) {
@@ -478,7 +475,7 @@ void PopUpWindow::ResizeToPreferredSize( bool with_effect )
 
 void PopUpWindow::GetPreferredSize( float *width, float *height )
 {
-	vector<ArrowedView *>::iterator vi;
+	std::vector<ArrowedView *>::iterator vi;
 	
 	*width = 0;
 
@@ -492,7 +489,6 @@ void PopUpWindow::GetPreferredSize( float *width, float *height )
 	
 	*width += 2;
 	
-	vi = &fViews.back();
-	*height = (*vi)->Frame().bottom - 1;
+	*height = fViews.back()->Frame().bottom - 1;
 	
 }

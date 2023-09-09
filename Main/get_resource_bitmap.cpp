@@ -41,7 +41,7 @@ BBitmap *get_resource_bitmap(const char *name) {
 	}
 
 #if DEBUG
-	cerr << "ERROR: Resource not found: " << name << endl;
+	std::cerr << "ERROR: Resource not found: " << name << std::endl;
 #endif
 
 	return NULL;

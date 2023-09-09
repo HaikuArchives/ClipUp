@@ -52,8 +52,8 @@ bool			operator== (const Clip& rhs);
 private:
 
 BMessage		fClip;							// the original clip
-string			fSignature;						// application which created the clip
-string			fBubbleText;					// text for bubble help
+std::string		fSignature;						// application which created the clip
+std::string		fBubbleText;					// text for bubble help
 bool			fIsProtected;					// clip is protected
 
 char			*fFlatData;						// flattened original clip

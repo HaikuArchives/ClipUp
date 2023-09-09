@@ -21,13 +21,13 @@
 #include <Window.h>
 
 #if DEBUG
-#include <iostream.h>
+#include <iostream>
 #endif
 
 // global initialisieren
 BubbleHelp	gBubbleHelp;
 
-long BubbleHelp::runcount = 0;
+int32 BubbleHelp::runcount = 0;
 
 struct helppair
 {
@@ -166,7 +166,7 @@ void BubbleHelp::OpenHelpWindow( BView *view, BPoint where ) {
 
 	// wait until mouse moves out of view, or wait
 	// for timeout
-	ulong buttons;
+	uint32 buttons;
 
 	if (!textwin->Lock()) return;
 
@@ -227,7 +227,7 @@ char *BubbleHelp::GetHelp(BView *view)
 }
 
 
-long BubbleHelp::_helper(void *arg)
+int BubbleHelp::_helper(void *arg)
 {
 	((BubbleHelp*)arg)->Helper();
 	return 0;
@@ -264,7 +264,7 @@ void BubbleHelp::Helper()
 		if (textwin->Lock()) {
 		
 			BPoint where;
-			ulong buttons;
+			uint32 buttons;
 
 			gfxview->GetMouse(&where,&buttons);
 			gfxview->ConvertToScreen(&where);

@@ -42,7 +42,7 @@ void					AddArrowedViews( bool is_update );
 
 BView					*fMainView;
 
-vector<ArrowedView *>	fViews;
+std::vector<ArrowedView *>	fViews;
 
 team_id					fActiveApp;
 mode_mouse				fMouseMode;

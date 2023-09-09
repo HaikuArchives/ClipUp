@@ -23,7 +23,7 @@
 #include <string.h>
 
 #if DEBUG
-#include <iostream.h>
+#include <iostream>
 #endif
 
 #include "Clip.h"
@@ -91,7 +91,7 @@ MultiClipboard::~MultiClipboard() {
 			
 #if DEBUG
 			status_t error = fileMsg.AddFlat("clip", (BFlattenable *)clip );
-			if (error!=B_OK) cerr << "Cannot add flat clip to msg: " << strerror(error) << endl;
+			if (error!=B_OK) std::cerr << "Cannot add flat clip to msg: " << strerror(error) << std::endl;
 #else
 			fileMsg.AddFlat("clip", (BFlattenable *)clip );
 #endif
@@ -166,7 +166,7 @@ void MultiClipboard::ApplyLimit()
 void MultiClipboard::MakeEmpty() {
 
 	Clip *clip;
-	while ( (clip = (Clip *)RemoveItem(0L)) )
+	while ( (clip = (Clip *)RemoveItem((int32)0)) )
 		delete clip;
 	
 }

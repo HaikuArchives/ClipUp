@@ -100,7 +100,7 @@ status_t Clip::Flatten(void *buffer, ssize_t buf_size) const
 	int32	size;
 	
 	// id
-	string	data = "clip";
+	std::string	data = "clip";
 	
 	// data
 	data += "data";
@@ -136,7 +136,7 @@ status_t Clip::Unflatten(type_code c, const void *buf, ssize_t size)
 	
 	while ((long)buf + size > (long)data + 8) {
 		
-		string	code;
+		std::string	code;
 		code.assign( data, 4);
 		
 		int		code_size = *(int *)(data + 4);
